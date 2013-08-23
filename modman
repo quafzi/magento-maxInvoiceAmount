@@ -1,0 +1,3 @@
+app/etc/modules/Quafzi_MaxInvoiceAmount.xml app/etc/modules/Quafzi_MaxInvoiceAmount.xml
+app/code/community/Quafzi/MaxInvoiceAmount app/code/community/Quafzi/MaxInvoiceAmount
+app/locale/de_DE/Quafzi_MaxInvoiceAmount.csv app/locale/de_DE/Quafzi_MaxInvoiceAmount.csv
