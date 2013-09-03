@@ -60,11 +60,13 @@ class Quafzi_MaxInvoiceAmount_Model_Observer
     {
         $amount = 0;
         foreach ($shipment->getItemsCollection()->getItems() as $item) {
-            $amount += ((float)$item->getOrderItem()->getBasePrice() * (float)$item->getQty());
+            $basePriceInclTax = (float)$item->getOrderItem()->getBasePriceInclTax();
+            $qty              = (float)$item->getQty();
+            $amount += $basePriceInclTax * $qty;
         }
         $order = $shipment->getOrder();
         // add shipping amount and maybe some other fees
-        $amount += $order->getBaseGrandTotal() - $order->getBaseSubtotal();
+        $amount += $order->getBaseGrandTotal() - $order->getBaseSubtotal() - $order->getBaseTaxAmount();
         return $amount;
     }
 
